@@ -2,10 +2,7 @@ package com.stefanini.hackaton.rest.DAO;
 
 import com.stefanini.hackaton.rest.entidades.Conta;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.io.Serializable;
@@ -14,8 +11,11 @@ import java.util.List;
 
 public class GenericDAO<T, I extends Serializable>  {
 
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PU");
-    EntityManager em = entityManagerFactory.createEntityManager();
+    //EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PU");
+    //EntityManager em = entityManagerFactory.createEntityManager();
+
+    @PersistenceContext(unitName = "PU")
+    EntityManager em;
 
     private Class<T> persistedClass;
 
