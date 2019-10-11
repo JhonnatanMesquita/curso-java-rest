@@ -2,15 +2,13 @@ package com.stefanini.hackaton.rest.DAO;
 
 import com.stefanini.hackaton.rest.entidades.Conta;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.Collection;
 
 public class ContaDAO {
 
-    @PersistenceContext(unitName = "PU")
-    private EntityManager em;
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PU");
+    EntityManager em = entityManagerFactory.createEntityManager();
 
     public ContaDAO(){
     }
