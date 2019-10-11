@@ -5,37 +5,8 @@ import com.stefanini.hackaton.rest.entidades.Pessoa;
 import javax.persistence.*;
 import java.util.Collection;
 
-public class PessoaDAO{
-
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PU");
-    EntityManager em = entityManagerFactory.createEntityManager();
-
-    public PessoaDAO (){
-    }
-
-    public void salvar (Pessoa p){
-        em.persist(p);
-    }
-
-    public Pessoa buscarId(Integer id){
-        try{
-            return em.find(Pessoa.class, id);
-        }catch (NullPointerException e){
-            throw e;
-        }
-    }
-
-    public Collection<Pessoa> buscarTodos(){
-        Query query = em.createQuery("SELECT e FROM Pessoa e");
-        return (Collection<Pessoa>) query.getResultList();
-    }
-
-    public Pessoa atualizar(Pessoa p){
-        return em.merge(p);
-    }
-
-    public void deletar (Integer id){
-        Pessoa p = buscarId(id);
-        em.remove(p);
+public class PessoaDAO extends GenericDAO<Pessoa, Integer>{
+    public PessoaDAO(){
+        super(Pessoa.class);
     }
 }
