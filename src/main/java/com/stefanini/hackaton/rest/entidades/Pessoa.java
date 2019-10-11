@@ -1,8 +1,6 @@
 package com.stefanini.hackaton.rest.entidades;
 
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.io.Serializable;
 

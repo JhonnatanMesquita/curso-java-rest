@@ -1,7 +1,6 @@
 package com.stefanini.hackaton.rest.DAO;
 
 import com.stefanini.hackaton.rest.entidades.Conta;
-import com.stefanini.hackaton.rest.entidades.Pessoa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

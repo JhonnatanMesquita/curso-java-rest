@@ -1,9 +1,7 @@
 package com.stefanini.hackaton.rest.parsers;
 
 import com.stefanini.hackaton.rest.DTO.ContaDTO;
-import com.stefanini.hackaton.rest.DTO.PessoaDTO;
 import com.stefanini.hackaton.rest.entidades.Conta;
-import com.stefanini.hackaton.rest.entidades.Pessoa;
 
 public class ContaParse extends AbstractParse<Conta, ContaDTO> {
 
