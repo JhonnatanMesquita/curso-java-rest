@@ -11,11 +11,11 @@ import java.util.List;
 
 public class GenericDAO<T, I extends Serializable>  {
 
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PU");
-    EntityManager em = entityManagerFactory.createEntityManager();
+    //EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PU");
+    //EntityManager em = entityManagerFactory.createEntityManager();
 
-    //@PersistenceContext(unitName = "PU")
-    //EntityManager em;
+    @PersistenceContext(unitName = "PU")
+    EntityManager em;
 
     private Class<T> persistedClass;
 

@@ -14,8 +14,8 @@ import java.util.List;
 @Path("/pessoa")
 public class PessoaAPI {
 
-    @Inject
-    PessoaDAO pessoaDAO;
+
+    PessoaDAO pessoaDAO = new PessoaDAO();
 
     @GET
     @Produces(value = MediaType.APPLICATION_JSON)
