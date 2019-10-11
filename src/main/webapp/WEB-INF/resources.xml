@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+    <resources>
+        <Resource id="curso" type="DataSource">
+            JdbcDriver com.mysql.jdbc.Driver
+            JdbcUrl jdbc:mysql://localhost:3306/curso-java-rest
+            UserName root
+            Password
+            jtaManaged true
+        </Resource>
+    </resources>
+</tomee>
