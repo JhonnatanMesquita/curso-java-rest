@@ -13,8 +13,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("/conta")
 @Stateless
+@Path("/conta")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class ContaAPI {
 
     @Inject
@@ -24,7 +26,6 @@ public class ContaAPI {
     PessoaDAO pessoaDAO;
 
     @GET
-    @Produces(value = MediaType.APPLICATION_JSON)
     public Response consultar() throws NegocioException {
 
         List<Conta> c = contaDAO.buscarTodos();
@@ -34,12 +35,10 @@ public class ContaAPI {
         }
 
         return Response.status(200).entity(c).build();
-
     }
 
     @GET
     @Path("/{id}")
-    @Produces(value = MediaType.APPLICATION_JSON)
     public Response consultarId(@PathParam("id") Integer id) throws NegocioException{
 
         Conta c = contaDAO.buscarId(id);
@@ -52,8 +51,6 @@ public class ContaAPI {
     }
 
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response inserir(Conta conta){
 
         conta.setId(null);
@@ -72,8 +69,6 @@ public class ContaAPI {
 
     @PUT
     @Path("/{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response alterar(Conta conta, @PathParam("id") Integer id) throws NegocioException{
         Conta c = contaDAO.buscarId(id);
 
@@ -90,8 +85,6 @@ public class ContaAPI {
 
     @PUT
     @Path("/associar/{pessoa}/{conta}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response associar(@PathParam("pessoa") Integer idPessoa, @PathParam("conta") Integer idConta) throws NegocioException{
 
         Pessoa p = pessoaDAO.buscarId(idPessoa);
