@@ -5,6 +5,7 @@ import com.stefanini.hackaton.rest.entidades.Pessoa;
 import com.stefanini.hackaton.rest.exceptions.NegocioException;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -16,7 +17,8 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class PessoaAPI {
 
-    PessoaDAO pessoaDAO = new PessoaDAO();
+    @Inject
+    PessoaDAO pessoaDAO;
 
     @GET
     public Response consultar() throws NegocioException{
@@ -39,6 +41,8 @@ public class PessoaAPI {
         if(p == null){
             throw new NegocioException("Essa pessoa não existe!");
         }
+
+        System.out.println(p);
 
         return Response.status(200).entity(p).build();
     }

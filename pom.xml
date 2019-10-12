@@ -32,6 +32,7 @@
       <artifactId>javax.ws.rs-api</artifactId>
       <version>2.0</version>
     </dependency>
+
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
@@ -56,13 +57,34 @@
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>5.4.6.Final</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.hibernate.javax.persistence</groupId>
+          <artifactId>hibernate-jpa-2.1-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.jboss.spec.javax.transaction</groupId>
+          <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
       <version>5.4.6.Final</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.hibernate.javax.persistence</groupId>
+          <artifactId>hibernate-jpa-2.1-api</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.jboss.spec.javax.transaction</groupId>
+          <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-spatial -->
     <dependency>
       <groupId>org.hibernate</groupId>
@@ -88,6 +110,7 @@
       <artifactId>validation-api</artifactId>
       <version>2.0.1.Final</version>
     </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
     <dependency>
       <groupId>org.hibernate.validator</groupId>
@@ -119,6 +142,29 @@
       <artifactId>antlr</artifactId>
       <version>2.7.7</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+      <version>2.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.tomee</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>[8.0,)</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.tomee/openejb-core-hibernate -->
+    <!--<dependency>-->
+      <!--<groupId>org.apache.tomee</groupId>-->
+      <!--<artifactId>openejb-core-hibernate</artifactId>-->
+      <!--<version>8.0.0</version>-->
+      <!--<type>pom</type>-->
+    <!--</dependency>-->
+
 
   </dependencies>
 
