@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/conta")
+@Stateless
 public class ContaAPI {
 
     @Inject

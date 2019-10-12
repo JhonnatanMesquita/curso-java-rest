@@ -12,10 +12,11 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Path("/pessoa")
+@Stateless
 public class PessoaAPI {
 
-
-    PessoaDAO pessoaDAO = new PessoaDAO();
+    @Inject
+    PessoaDAO pessoaDAO;
 
     @GET
     @Produces(value = MediaType.APPLICATION_JSON)
