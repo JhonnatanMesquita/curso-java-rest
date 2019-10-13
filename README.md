@@ -20,7 +20,7 @@
 
 # Observações
 
-## TomEE (TomEE 9.0.22 webprofile)
+## TomEE (TomEE 7.1.1 webprofile)
 
 - As informações do banco deverão estar contidas no arquivo `resources/META-INF/resources.xml`<br>
 - O EntityManager ( no arquivo `DAO/GenericDAO.java`) deve ser instânciado da seguinte forma: <br> `@PersistenceContext(unitName = "PU")` <br> `EntityManager em;`

@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 public class Conta implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,7 @@ public class Conta implements Serializable {
     @Column
     private String senha;
 
-    @OneToMany(mappedBy = "conta", cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "conta", targetEntity = Pessoa.class, fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
     private List<Pessoa> pessoas = new ArrayList<>();
 
     public Conta() {
