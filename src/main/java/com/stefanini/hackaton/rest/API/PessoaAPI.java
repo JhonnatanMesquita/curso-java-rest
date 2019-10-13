@@ -42,8 +42,6 @@ public class PessoaAPI {
             throw new NegocioException("Essa pessoa não existe!");
         }
 
-        System.out.println(p);
-
         return Response.status(200).entity(p).build();
     }
 
