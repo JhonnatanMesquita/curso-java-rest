@@ -20,14 +20,14 @@
 
 # Observações
 
-## TomEE
+## TomEE (TomEE 9.0.22 webprofile)
 
 - As informações do banco deverão estar contidas no arquivo `resources/META-INF/resources.xml`<br>
 - O EntityManager ( no arquivo `DAO/GenericDAO.java`) deve ser instânciado da seguinte forma: <br> `@PersistenceContext(unitName = "PU")` <br> `EntityManager em;`
 - Se preferir você pode remover as seguintes linhas do arquivo `resources/META-INF/persistence.xml` <br> `<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />` <br> `<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/curso-java-rest" />` <br> `<property name="javax.persistence.jdbc.user" value="root" />` <br> `<property name="javax.persistence.jdbc.password" value="" />`<br>
 
 
-## Jboss
+## Jboss (WildFly 17.0.1)
 
 - As informações do banco deverão estar contidas no arquivo `resources/META-INF/persistence.xml`
 - O EntityManager ( no arquivo `DAO/GenericDAO.java`) deve ser instânciado da seguinte forma: <br> `EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PU");` <br> `EntityManager em = entityManagerFactory.createEntityManager();`
