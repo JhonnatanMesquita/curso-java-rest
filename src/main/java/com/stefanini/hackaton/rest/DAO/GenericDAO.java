@@ -1,17 +1,22 @@
 package com.stefanini.hackaton.rest.DAO;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.io.Serializable;
 import java.util.List;
 
-public class GenericDAO<T extends Serializable, I>  {
 
+public class GenericDAO<T, I extends Serializable>  {
+
+    //Usado para o Jboss
 //    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PU");
 //    EntityManager em = entityManagerFactory.createEntityManager();
 
+    //Usado para o TomEE
     @PersistenceContext(unitName = "PU")
     EntityManager em;
 
