@@ -1,0 +1,32 @@
+<div class="h-center col-md-8">
+    <div ng-init="PessoaController.getPessoas()">
+        <div ng-if="PessoaController.pessoas">
+
+            <h1> Consulta de pessoas </h1>
+
+            <a href="#!pessoa/cadastrar" class="btn btn-success float-right"> Cadastrar usuario </a>
+            <table class="table" >
+                <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cpf</th>
+                    <th scope="col">Agencia</th>
+                    <th scope="col">Conta</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="pessoa in PessoaController.pessoas" >
+                    <td>{{ pessoa.nome }}</td>
+                    <td>{{ pessoa.cpf }}</td>
+                    <td>{{ pessoa.conta.agencia }}</td>
+                    <td>{{ pessoa.conta.conta }}</td>
+                    <td><a class="btn btn-primary" href="#!/pessoa/alterar/{{pessoa.id}}">Alterar</a> </td>
+                    <td><button class="btn btn-danger" ng-click="PessoaController.deletar(pessoa.id)">Deletar</button> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

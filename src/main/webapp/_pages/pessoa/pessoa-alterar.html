@@ -1,0 +1,16 @@
+<div class="center col-md-6">
+    <h1>Alterar Pessoa</h1>
+    <div ng-init="PessoaController.buscar(PessoaController.id)">
+        <form ng-submit="PessoaController.alterar(PessoaController.pessoa, PessoaController.id)">
+            <div class="form-group">
+                <label>Nome: </label>
+                <input type="text" ng-model="PessoaController.pessoa.nome" class="form-control"aria-describedby="emailHelp" placeholder="Nome">
+            </div>
+            <div class="form-group">
+                <label>CPF: </label>
+                <input type="text" ng-model="PessoaController.pessoa.cpf" class="form-control" placeholder="CPF">
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">Alterar</button>
+        </form>
+    </div>
+</div>

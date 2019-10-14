@@ -2,71 +2,47 @@
 <html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="./js/angular.min.js"></script>
-    <script src="./js/app.js"></script>
-    <script src="./_services/login-service.js"></script>
-    <script src="./_services/registro-service.js"></script>
-    <script src="./_controllers/home-controller.js"></script>
-    <script src="./_controllers/login-controller.js"></script>
-    <script src="./_controllers/registro-controller.js"></script>
-    <script src="./_controllers/recuperarSenha-controller.js"></script>
+    <title>Contas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/routes.js"></script>
+
+    <script src="./_services/pessoa.service.js"></script>
+    <script src="./_controllers/pessoa.controller.js"></script>
 
     <link href="css/style.css" rel="stylesheet">
 
 </head>
-<body ng-controller="HomeController as HomeController">
+    <body ng-app="app">
 
-    <div ng-controller="LoginController as LoginController" ng-if="$root.telaSelecionada === 'LOGIN'">
-        <form ng-submit="LoginController.entrar(LoginController.usuario)">
-            <label>Usuario:</label>
-            <input type="email" ng-model="LoginController.usuario.email" ng-required="true"/>
-            <label>Senha:</label>
-            <input type="password" ng-model="LoginController.usuario.senha" ng-required="true"/>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#!">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#!pessoa">Pessoa <span class="sr-only">(Página atual)</span></a>
+                    </li>                
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#!conta">Conta</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-            <button type="submit"> Entrar </button>
-
-            <input type="button" ng-click="HomeController.abrirTelaRecuperarSenha()" value="Esqueci a senha">
-
-
-            <input type="button" ng-click="HomeController.abrirTelaRegistro()" value="Registre-se">
-        </form>
+    <div ng-view class="container mt-2">
+        
     </div>
 
-
-    <div ng-controller="RecuperarSenhaController as RecuperarSenhaController" ng-if="$root.telaSelecionada === 'RECUPERAR_SENHA'">
-        <form ng-submit="RecuperarSenhaController.recuperarSenha(LoginController.usuario.email)">
-            <input type="text" value="email" ng-model="LoginController.usuario.email">
-            <input type="submit" value="RecuperarSenha">
-
-            <input type="button" value="voltar" ng-click="RecuperarSenhaController.voltar()">
-        </form>
-    </div>
-
-    <div ng-if="$root.telaSelecionada === 'HOME'">
-        Olá {{HomeController.service.usuario.email}}
-    </div>
-
-    <div ng-controller="RegistroController as RegistroController" ng-if="$root.telaSelecionada === 'REGISTRO'">
-        <form ng-submit="RegistroController.registrar(RegistroController.pessoa)">
-            <label>Nome: </label>
-            <input type="text" ng-model="RegistroController.pessoa.nome">
-            <label>CPF: </label>
-            <input type="Number" ng-model="RegistroController.pessoa.cpf">
-            <hr>
-            <label>Agência:</label>
-            <input type="text" ng-model="RegistroController.pessoa.agencia">
-
-            <label>Conta:</label>
-            <input type="text" ng-model="RegistroController.pessoa.conta">
-
-            <label>Senha:</label>
-            <input type="password" ng-model="RegistroController.pessoa.senha">
-
-            <input type="submit" value="enviar">
-        </form>
-    </div>
-
-</body>
+    </body>
 </html>
