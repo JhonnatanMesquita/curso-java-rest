@@ -1,6 +1,6 @@
 <div class="h-center col-md-8">
-    <div ng-init="PessoaController.getPessoas()">
-        <div ng-if="PessoaController.pessoas">
+    <div ng-controller="PessoaController as PessoaController" ng-init="PessoaController.getPessoas()">
+        <div>
 
             <h1> Consulta de pessoas </h1>
 
@@ -10,18 +10,16 @@
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Cpf</th>
-                    <th scope="col">Agencia</th>
-                    <th scope="col">Conta</th>
+                    <th scope="col">Conta Id</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody  ng-if="PessoaController.pessoas">
                 <tr ng-repeat="pessoa in PessoaController.pessoas" >
                     <td>{{ pessoa.nome }}</td>
                     <td>{{ pessoa.cpf }}</td>
-                    <td>{{ pessoa.conta.agencia }}</td>
-                    <td>{{ pessoa.conta.conta }}</td>
+                    <td>{{ pessoa.conta.id }}</td>
                     <td><a class="btn btn-primary" href="#!/pessoa/alterar/{{pessoa.id}}">Alterar</a> </td>
                     <td><button class="btn btn-danger" ng-click="PessoaController.deletar(pessoa.id)">Deletar</button> </td>
                 </tr>

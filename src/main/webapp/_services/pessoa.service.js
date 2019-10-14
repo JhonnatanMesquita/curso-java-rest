@@ -12,17 +12,17 @@ function PessoaService($http, config) {
 
     self.buscar = function (id) {
         return $http.get(`${config.apiUrl}/pessoa/${id}`)
-    };
+    }
 
     self.deletar = function (id) {
         return $http.delete(`${config.apiUrl}/pessoa/${id}`);
-    };
+    }
 
     self.inserir = function(pessoa){
         return $http.post(`${config.apiUrl}/pessoa`, pessoa);
-    };
+    }
 
     self.alterar = function(pessoa, id){
         return $http.put(`${config.apiUrl}/pessoa/${id}`, pessoa);
-    };
+    }
 }

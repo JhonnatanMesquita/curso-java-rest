@@ -1,0 +1,28 @@
+<div class="h-center col-md-8">
+    <div ng-controller="ContaController as ContaController" ng-init="ContaController.getContas()">
+        <div>
+
+            <h1> Consulta de contas </h1>
+
+            <a href="#!conta/cadastrar" class="btn btn-success float-right"> Cadastrar conta </a>
+            <table class="table" >
+                <thead>
+                <tr>
+                    <th scope="col">Agencia</th>
+                    <th scope="col">Conta</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody ng-if="ContaController.contas">
+                <tr ng-repeat="conta in ContaController.contas" >
+                    <td>{{ conta.agencia }}</td>
+                    <td>{{ conta.conta }}</td>
+                    <td><a class="btn btn-primary" href="#!/conta/alterar/{{conta.id}}">Alterar</a> </td>
+                    <td><button class="btn btn-danger" ng-click="ContaController.deletar(conta.id)">Deletar</button> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

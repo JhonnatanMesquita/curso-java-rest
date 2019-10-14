@@ -1,0 +1,16 @@
+<div class="center col-md-6">
+    <h1>Alterar Pessoa</h1>
+    <div ng-controller="ContaController as ContaController" ng-init="ContaController.buscar(ContaController.id)">
+        <form ng-submit="ContaController.alterar(ContaController.conta, ContaController.id)">
+            <div class="form-group">
+                <label>Agencia: </label>
+                <input type="text" ng-model="ContaController.conta.agencia" class="form-control"aria-describedby="emailHelp" placeholder="Agencia">
+            </div>
+            <div class="form-group">
+                <label>Conta: </label>
+                <input type="text" ng-model="ContaController.conta.conta" class="form-control" placeholder="Conta">
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">Alterar</button>
+        </form>
+    </div>
+</div>
