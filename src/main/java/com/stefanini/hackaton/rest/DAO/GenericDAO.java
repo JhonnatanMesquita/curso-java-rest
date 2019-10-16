@@ -6,17 +6,15 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.transaction.Transactional;
+
 import java.io.Serializable;
 import java.util.List;
 
-
+@Transactional
 public class GenericDAO<T, I extends Serializable>  {
 
-    //Usado para o Jboss
-//    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PU");
-//    EntityManager em = entityManagerFactory.createEntityManager();
 
-    //Usado para o TomEE
     @PersistenceContext(unitName = "PU")
     EntityManager em;
 

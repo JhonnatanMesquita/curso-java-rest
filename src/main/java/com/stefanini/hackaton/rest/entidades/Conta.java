@@ -22,9 +22,6 @@ public class Conta implements Serializable {
     @Column
     private String senha;
 
-    @OneToMany(mappedBy = "conta", targetEntity = Pessoa.class, fetch = FetchType.LAZY, cascade=CascadeType.REMOVE)
-    private List<Pessoa> pessoas = new ArrayList<>();
-
     public Conta() {
     }
 
